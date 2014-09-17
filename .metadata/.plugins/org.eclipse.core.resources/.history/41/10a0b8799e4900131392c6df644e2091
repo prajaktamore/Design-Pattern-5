@@ -1,0 +1,5 @@
+package reflection.interfaces;
+
+public interface Strategy {
+	public Boolean doOperation(Object object);
+}

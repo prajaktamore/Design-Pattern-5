@@ -1,0 +1,14 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.Strategy;
+
+public class MySecondClass implements Strategy{
+
+	@Override
+	public Class doOperation(Object object) {
+		if(object instanceof MyAllTypesSecond){
+			
+		}
+	}
+
+}

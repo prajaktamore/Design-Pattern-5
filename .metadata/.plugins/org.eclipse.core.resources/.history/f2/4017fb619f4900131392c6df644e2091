@@ -1,0 +1,13 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.Strategy;
+
+public class DPSerialization implements Strategy{
+
+	@Override
+	public boolean check(String s) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

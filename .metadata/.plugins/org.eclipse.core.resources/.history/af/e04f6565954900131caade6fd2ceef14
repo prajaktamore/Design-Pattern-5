@@ -1,0 +1,123 @@
+package reflection.utilClasses;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import reflection.interfaces.IDeSerialize;
+import reflection.interfaces.IParse;
+import reflection.serDeser.DeSerialize;
+import reflection.serDeser.DeSerializeTypes;
+import reflection.serDeser.Serialize;
+import reflection.serDeser.SerializeTypes;
+/**
+ * @author Prajakta More
+ * Parse class that parse the file data and generated the hashmap for every object 
+ */
+
+public class Parse implements IParse{
+	
+	/**
+	 * Parse Constructor
+	 */
+	public Parse() {
+		if(Debug.getDEBUG_VALUE() == 4){
+		System.out.println("Constructor is called :: "+ this.getClass().getName());}
+	}
+	
+	/**
+	 * @throws IOException
+	 */
+	@Override
+	public void readFile() throws IOException {
+		try {
+			FileReaderClass.setFileReader(new FileReader(FileReaderClass
+					.getInputFileName()));
+		} catch (FileNotFoundException e) {
+			System.err.println("Exception Occured :: " + e.getMessage());
+		}
+		FileReaderClass.setBr(new BufferedReader(FileReaderClass
+				.getFileReader()));
+
+		StringBuilder buildString = new StringBuilder();
+		String fileData = null;
+		HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
+		while ((fileData = FileReaderClass.getBr().readLine()) != null) {
+			if (!fileData.trim().contains("DPSerialization")) {
+				if (fileData.trim().contains("<complexType")) {
+					Matcher matcher = Pattern.compile(
+							"^.*?" + "<" + "(.*)" + "xsi:type" + ".*$")
+							.matcher(fileData);
+					if (matcher.matches()) {
+						hashMap = new HashMap<Integer, String>();
+						System.out.println("I found the text: "
+								+ matcher.group(1));
+
+						Matcher matcher1 = Pattern.compile(
+								"^.*?" + "\"" + "(.*)" + "\"" + ".*$").matcher(
+								fileData);
+						if (matcher1.matches())
+							hashMap.put(0, matcher1.group(1));
+					}
+
+				} else if (!fileData.trim().contains("complexType")) {
+					// String testHtml =
+					// "xx <tag a =\"b\" c=  \'d\' e=f> contentssss </tag> zz";
+					Pattern tagPattern = Pattern
+							.compile("<(\\S+?)(.*?)>(.*?)</\\1>");
+					Pattern attValueDoubleQuoteOnly = Pattern
+							.compile("(\\w+)=\"(.*?)\"");
+					Pattern attValueAll = Pattern
+							.compile("([\\w:\\-]+)(\\s*=\\s*(\"(.*?)\"|'(.*?)'|([^ ]*))|(\\s+|\\z))");
+					Matcher m = tagPattern.matcher(fileData.trim());
+					boolean tagFound = m.find(); // true
+					String tagOnly = m.group(0);// <tag a ="b" c= 'd' e=f>
+												// contentssss </tag>
+					String tagname = m.group(1);// tag
+					String attributes = m.group(2);// a ="b" c= 'd' e=f
+					String content = m.group(3);// contentssss
+					System.out.println("attribute" + attributes);
+					if (attributes.contains("string")) {
+						hashMap.put(1, m.group(3).trim());
+					} else if (attributes.contains("int")) {
+						hashMap.put(2, m.group(3).trim());
+					} else if (attributes.contains("double")
+							|| attributes.contains("float")) {
+						hashMap.put(3, m.group(3).trim());
+					} else if (attributes.contains("long")
+							|| attributes.contains("short")) {
+						hashMap.put(4, m.group(3).trim());
+					} else if (attributes.contains("char")
+							|| attributes.contains("char")) {
+						hashMap.put(5, m.group(3).trim());
+					}
+					System.out.println(hashMap);
+					System.out.println("Tag Name   : " + tagname);
+					System.out.println("Content    : " + content);
+				} else if (fileData.trim().contains("</complexType")) {
+					IDeSerialize deSerialize = new DeSerialize();
+					deSerialize.deSerializeMethod(hashMap);
+				}
+			}
+
+		}
+
+		DeSerializeTypes
+				.setMyAllTypesFirsts(DeSerialize.getMyAllTypesFirsts1());
+		DeSerializeTypes.setMyAllTypesSeconds(DeSerialize
+				.getMyAllTypesSecond1());
+		Serialize.setSequence(buildString.toString());
+		System.out.println("first types size::"
+				+ DeSerializeTypes.getMyAllTypesFirsts().size());
+		System.out.println("second types size::"
+				+ DeSerializeTypes.getMyAllTypesSeconds().size());
+		System.out.println("Final size::"
+				+ SerializeTypes.getMyAllTypesFinal().size());
+		// "<complexType+ xsi+\:\type+\=\"\reflection.util+\.[a-zA-Z]*.\">)"
+
+	}
+}

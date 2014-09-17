@@ -1,0 +1,126 @@
+CS542 Design Patterns
+Fall 2013
+PROJECT <1> README FILE
+
+Due Date: <Sunday 10, November, 2013>
+Submission Date: <Sunday 10, November, 2013>
+Grace Period Used This Project: <0> Days
+Grace Period Remaining: <0> Days
+Author(s): <Prajakta More>
+e-mail(s): <pmore2@binghamton.edu>
+
+
+PURPOSE:
+[
+1)Parse XML line to line and pick all values like class and objects
+2)Then Use Relection to map the specify values to the objects
+3)Then Compare MyAllTypesFirst.java and MyAllTypesSecond.java for unique instances
+4)Use serailize to write to output file same as first XML
+5)Compare files to check whether no difference is present
+]
+
+PERCENT COMPLETE:
+[
+  I believe we have completed the project 100%, I have implemented entire functionality.
+  According to the specific required two design patterns are applied 
+  1. Strategy Design Pattern
+]
+
+PARTS THAT ARE NOT COMPLETE:
+[
+  None.
+]
+
+BUGS:
+[
+	Known bugs N/A  
+]
+
+FILES:
+[
+
+  Included with this project are 27 files:
+  	Driver.java 			Driver class that calls in steps Parse, Serialize, compare only if Debug value is 0,deserialize
+  	ICheckUserInput.java 	Interface that checks the input validity
+	ICompareTwoClasses.java Interface that Compare two classes
+	IContext.java 			Use the Context to see change in behaviour when it changes its Strategy As this interface is for Context class
+	IDeSerialize.java 		Interface for Deseralize
+	IParse.java 			Interface for Parse class
+	ISerialize.java 		Interface for Serialize class
+	IStrategy.java 			Strategy implementation of Strategy pattern
+	DeSerialize.java 		DeSerialize class that uses reflection to generate classes and calls respective methodfrom the parsed data
+	DeSerializeTypes.java 	DeSerialize types that provides input to DeSerialize class that uses reflection to generate classes and calls respective methodfrom the parsed data
+	Serialize.java 			Serialize class that Serialize data and generate MyAllTypesCopy.txt
+	SerializeTypes.java 	SerializeTypes class that contains datatypes used in Serialize class
+	MyAllTypesFirst.java 	MyAllTypeFirst POJO class
+	MyAllTypesSecond.java 	MyAllTypesSecond POJO class
+	CallMethod.java 		One of the Implementation of Strategy pattern
+	CatchWrongInputException.java User Defined exception class, That validates input data
+	CheckUserInput.java 	Checks the input validity
+	CompareTwoClasses.java  Compares the arraylists to find uniqueInstance
+	ComplexType.java 		One of the Implementation of Strategy pattern
+	Context.java 			Use the Context to see change in behaviour when it changes its Strategy
+	Debug.java 				Debugger class that maintains logging information
+	DPSerialization.java 	One of the Implementation of Strategy pattern
+	FileReaderClass.java 	FileReaderClass tis contains objects of FileReader and BufferedReader
+	Parse.java 				Parse class that parse the file data and generated the hashmap for every object
+	PrimitiveTypes.java 	One of the Implementation of Strategy pattern
+  	build.xml				Code for ANT compilation and for setting command line arguments.
+  	README					The text file that you are currently reading.
+    MyAllTypes.txt          Input file
+]
+
+SAMPLE OUTPUT:
+
+[
+
+
+]
+
+TO COMPILE:
+
+[
+  Extract the project and go to the directory(using CD Command) where you have extracted the project.
+  
+  Please Compile as: ant compile
+  
+]
+
+TO RUN:
+
+[
+  Please run as: ant -Darg0=DataFile -Darg1=5 -Darg2=SearchFile -Darg3=5 run 
+]
+
+EXTRA CREDIT:
+
+[
+  In our code we have used Vector as the data structure to store the records. 
+  Vector optimizes storage management and is efficient in terms of storage as the management is done using 
+  capacity and capacitIncrement. 
+  
+  Size of the vector is the capacity of the vector and the capacityIncrement increases 
+  the storage in chunk of size capacitIncrement. If we want to insert large number of components 
+  in vector we can increase the capacity in advance by specifying or increasing size of capacityIncrement.
+
+Program to Interface and not to concrete class
+
+Input validation with user defined Exception handling
+
+]
+
+
+
+
+BIBLIOGRAPHY:
+
+This serves as evidence that we are in no way intending Academic Dishonesty.
+<Prajakta More, Kapil Madhavrao Bijamwar>
+[
+	javaworld.com
+]
+
+ACKNOWLEDGEMENT:
+[
+	javaworld.com
+]

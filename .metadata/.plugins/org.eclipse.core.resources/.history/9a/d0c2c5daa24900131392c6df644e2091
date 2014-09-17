@@ -1,0 +1,15 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.IStrategy;
+
+public class DPSerialization implements IStrategy{
+
+	@Override
+	public boolean check(String s) {
+		if(s.equals("DPSerialization")){
+			return true;
+		}
+		return false;
+	}
+
+}

@@ -1,0 +1,72 @@
+package reflection.utilClasses;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import reflection.interfaces.ICompareTwoClasses;
+import reflection.serDeser.DeSerializeTypes;
+import reflection.util.MyAllTypesFirst;
+import reflection.util.MyAllTypesSecond;
+
+/**
+ * @author Prajakta More
+ * Compares the arraylists to fing uniqueInstance
+ */
+public class CompareTwoClasses implements ICompareTwoClasses {
+
+	public CompareTwoClasses() {
+		if(Debug.getDEBUG_VALUE() == 4){
+		System.out.println("Constructor is called :: "+ this.getClass().getName());}
+	}
+	
+	Set<MyAllTypesFirst> myAllTypesFirsts = new LinkedHashSet<MyAllTypesFirst>();
+	Set<MyAllTypesSecond> myAllTypesSeconds = new LinkedHashSet<MyAllTypesSecond>();
+
+	/* (non-Javadoc)
+	 * @see reflection.interfaces.ICompareTwoClasses#compare()
+	 */
+	@Override
+	public void compare() {
+
+		myAllTypesFirsts.add(DeSerializeTypes.getMyAllTypesFirsts().get(0));
+		myAllTypesSeconds.add(DeSerializeTypes.getMyAllTypesSeconds().get(0));
+		if (null != DeSerializeTypes.getMyAllTypesFirsts()) {
+			for (MyAllTypesFirst myFirst : DeSerializeTypes
+					.getMyAllTypesFirsts()) {
+				boolean flag = false;
+				for (MyAllTypesFirst myFirstEmpty : myAllTypesFirsts) {
+					if (myFirstEmpty.equals(myFirst)) {
+						flag = true;
+					}
+
+				}
+				if (!flag) {
+					myAllTypesFirsts.add(myFirst);
+				}
+			}
+		}
+		if (null != DeSerializeTypes.getMyAllTypesSeconds()) {
+			for (MyAllTypesSecond mySecond : DeSerializeTypes
+					.getMyAllTypesSeconds()) {
+				boolean flag = false;
+				for (MyAllTypesSecond mySecondEmpty : myAllTypesSeconds) {
+					if (mySecondEmpty.equals(mySecond)) {
+						flag = true;
+					}
+				}
+				if (!flag) {
+					myAllTypesSeconds.add(mySecond);
+				}
+
+			}
+		}
+		System.out.println("myAllTypesFirsts.size()" + myAllTypesFirsts.size());
+		System.out.println("myAllTypesSeconds" + myAllTypesSeconds.size());
+		// System.out.println("One:::"+
+		// (DeSerializeTypes.getMyAllTypesFirsts().size() -
+		// myAllTypesFirsts.size()));
+		// System.out.println("Second:::"+(DeSerializeTypes.getMyAllTypesSeconds().size()-
+		// myAllTypesSeconds.size()));
+	}
+
+}

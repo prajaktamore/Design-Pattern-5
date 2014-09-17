@@ -1,0 +1,13 @@
+package reflection.interfaces;
+
+import reflection.utilClasses.CatchWrongInputException;
+
+/**
+ * @author Prajakta More
+ * Interface that checks the input validity
+ */
+public interface ICheckUserInput {
+	public void checkUserInput(String inputFile, String outputFile, int input)
+			throws CatchWrongInputException;
+
+}

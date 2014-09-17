@@ -1,0 +1,10 @@
+package reflection.serDeser;
+
+import java.util.HashMap;
+
+import reflection.util.MyAllTypesFirst;
+import reflection.util.MyAllTypesSecond;
+
+public class SerializeTypes {
+	static HashMap<Integer, Object> myAllTypesFinal = new HashMap<Integer, Object>();
+}

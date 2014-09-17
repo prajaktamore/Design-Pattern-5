@@ -1,0 +1,21 @@
+package reflection.serDeser;
+
+import java.io.Serializable;
+import java.util.HashMap;
+
+
+public class SerializeTypes implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	static HashMap<Integer, Object> myAllTypesFinal = new HashMap<Integer, Object>();
+
+	/**
+	 * @return the myAllTypesFinal
+	 */
+	public static HashMap<Integer, Object> getMyAllTypesFinal() {
+		return myAllTypesFinal;
+	}
+
+}

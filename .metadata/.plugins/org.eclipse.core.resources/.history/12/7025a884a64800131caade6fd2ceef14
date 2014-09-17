@@ -1,0 +1,70 @@
+package reflection.util;
+
+public class MyAllTypesSecond {
+	private int myInt;
+	private String myString;
+	private float myFloat;
+	private short myShort;
+	private char myChar;
+	/**
+	 * @return the myInt
+	 */
+	public int getMyInt() {
+		return myInt;
+	}
+	/**
+	 * @param myInt the myInt to set
+	 */
+	public void setMyInt(int myInt) {
+		this.myInt = myInt;
+	}
+	/**
+	 * @return the myString
+	 */
+	public String getMyString() {
+		return myString;
+	}
+	/**
+	 * @param myString the myString to set
+	 */
+	public void setMyString(String myString) {
+		this.myString = myString;
+	}
+	/**
+	 * @return the myFloat
+	 */
+	public float getMyFloat() {
+		return myFloat;
+	}
+	/**
+	 * @param myFloat the myFloat to set
+	 */
+	public void setMyFloat(float myFloat) {
+		this.myFloat = myFloat;
+	}
+	/**
+	 * @return the myShort
+	 */
+	public short getMyShort() {
+		return myShort;
+	}
+	/**
+	 * @param myShort the myShort to set
+	 */
+	public void setMyShort(short myShort) {
+		this.myShort = myShort;
+	}
+	/**
+	 * @return the myChar
+	 */
+	public char getMyChar() {
+		return myChar;
+	}
+	/**
+	 * @param myChar the myChar to set
+	 */
+	public void setMyChar(char myChar) {
+		this.myChar = myChar;
+	}
+	
+}

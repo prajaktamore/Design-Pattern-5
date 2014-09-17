@@ -1,0 +1,9 @@
+package reflection.util;
+
+public class MyAllTypesFirst {
+	private int myInt;
+	private String myString;
+	private double myDouble;
+	private long myLong;
+	private char myChar;
+}

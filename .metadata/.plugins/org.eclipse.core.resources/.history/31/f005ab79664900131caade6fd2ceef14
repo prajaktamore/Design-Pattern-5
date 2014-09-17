@@ -1,0 +1,38 @@
+package reflection.serDeser;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import reflection.util.MyAllTypesFirst;
+
+
+public class SerializeTypes implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	static ArrayList<Object> myAllTypesFinal = new ArrayList<Object>();
+	/**
+	 * @return the myAllTypesFinal
+	 */
+	public static ArrayList<Object> getMyAllTypesFinal() {
+		return myAllTypesFinal;
+	}
+	/**
+	 * @param myAllTypesFinal the myAllTypesFinal to set
+	 */
+	public static void setMyAllTypesFinal(ArrayList<Object> myAllTypesFinal) {
+		SerializeTypes.myAllTypesFinal = myAllTypesFinal;
+	}
+	
+	public String getMyAllTypesFinal1() {
+		String str;
+			for (Object iterable_element : getMyAllTypesFinal()) {
+				if(iterable_element instanceof MyAllTypesFirst){
+					
+				}
+					
+			}
+	}
+
+}

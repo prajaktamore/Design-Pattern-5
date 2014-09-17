@@ -1,0 +1,25 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.ICheckUserInput;
+
+public class CheckUserInput implements ICheckUserInput{
+	/**
+	 * @param input
+	 * @throws CatchWrongInputException
+	 */
+	public static void checkUserInput(String input)
+			throws CatchWrongInputException {
+	try {
+		if (null == input && input.trim().equals(" ") && input.length() == 0) {
+			throw new CatchWrongInputException(
+					"Input String is not valid");
+		}
+	} catch (CatchWrongInputException e) {
+		System.err.println("Exception Occured :: "+e.getMessage());
+		System.exit(0);
+
+	} finally {
+		System.out.println("Program Failed to Execute");
+	}
+	}
+}

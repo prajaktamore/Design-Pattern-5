@@ -1,0 +1,15 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.IStrategy;
+
+public class Context {
+	 private IStrategy strategy;
+
+	   public Context(IStrategy strategy){
+	      this.strategy = strategy;
+	   }
+
+	   public boolean executeStrategy(String data){
+	      return strategy.check(data);
+	   }
+}

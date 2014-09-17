@@ -1,0 +1,10 @@
+package reflection.serDeser;
+
+import java.util.ArrayList;
+
+import reflection.util.MyAllTypesFirst;
+
+public class DeSerializeTypes {
+	static ArrayList<MyAllTypesFirst> myAllTypesFirsts = new ArrayList<MyAllTypesFirst>();
+	static ArrayList<MyAllTypesSecond> myAllTypesSeconds = new ArrayList<MyAllTypesSecond>();
+}

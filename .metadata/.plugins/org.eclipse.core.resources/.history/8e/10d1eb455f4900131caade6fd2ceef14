@@ -1,0 +1,110 @@
+package reflection.util;
+
+import java.io.Serializable;
+
+public class MyAllTypesFirst  implements Serializable{
+	private int myInt;
+	private String myString;
+	private double myDouble;
+	private long myLong;
+	private char myChar;
+	
+	/**
+	 * @return the myInt
+	 */
+	public int getMyInt() {
+		return myInt;
+	}
+	/**
+	 * @param myInt the myInt to set
+	 */
+	public void setMyInt(int myInt) {
+		this.myInt = myInt;
+	}
+	/**
+	 * @return the myString
+	 */
+	public String getMyString() {
+		return myString;
+	}
+	/**
+	 * @param myString the myString to set
+	 */
+	public void setMyString(String myString) {
+		this.myString = myString;
+	}
+	/**
+	 * @return the myDouble
+	 */
+	public double getMyDouble() {
+		return myDouble;
+	}
+	/**
+	 * @param myDouble the myDouble to set
+	 */
+	public void setMyDouble(double myDouble) {
+		this.myDouble = myDouble;
+	}
+	/**
+	 * @return the myLong
+	 */
+	public long getMyLong() {
+		return myLong;
+	}
+	/**
+	 * @param myLong the myLong to set
+	 */
+	public void setMyLong(long myLong) {
+		this.myLong = myLong;
+	}
+	/**
+	 * @return the myChar
+	 */
+	public char getMyChar() {
+		return myChar;
+	}
+	/**
+	 * @param myChar the myChar to set
+	 */
+	public void setMyChar(char myChar) {
+		this.myChar = myChar;
+	}
+	
+	@Override
+	  public boolean equals(Object obj) {           
+	        if (this == obj)
+	            return true;
+	        if (obj == null)
+	            return false;
+	        if (getClass() != obj.getClass())
+	            return false;
+	        
+	        MyAllTypesFirst other = (MyAllTypesFirst) obj;
+	        if (this.getMyChar() != other.getMyChar()){
+	            return false;
+	        } else if (!this.getMyString().equals(other.getMyString()))
+	        { return false;
+	        }else if (this.getMyInt() != other.getMyInt()){
+                return false;
+        	}else if (this.getMyDouble() != other.getMyDouble() ) {
+        		return false;
+        	}else if (this.getMyLong() != other.getMyLong()){
+                return false;
+        }
+	        return true;}
+	
+	@Override
+	public int hashCode() {
+		
+        int result = 1;
+        
+        result = 31 * result
+                + ((this.getMyString() == null) ? 0 : this.getMyString().hashCode());
+        result = 32 * result + this.getMyInt();
+        result = 33 * result
+                + ((this.getMyChar() == ' ') ? 0 : this.getMyChar());
+        result = (int) (34 * result + this.getMyLong());
+        result = (int) (35 * result + this.getMyDouble());
+        return result;
+	}
+}

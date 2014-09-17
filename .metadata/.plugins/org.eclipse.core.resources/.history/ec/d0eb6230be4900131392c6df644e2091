@@ -1,0 +1,72 @@
+package reflection.utilClasses;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import reflection.interfaces.ICompareTwoClasses;
+import reflection.serDeser.DeSerializeTypes;
+import reflection.util.MyAllTypesFirst;
+import reflection.util.MyAllTypesSecond;
+
+/**
+ * @author Prajakta More
+ * Compares the arraylists to find uniqueInstance
+ */
+public class CompareTwoClasses implements ICompareTwoClasses {
+	public static StringBuilder strbuild = new StringBuilder();
+	/**
+	 * CompareTwoClasses constructor
+	 */
+	public CompareTwoClasses() {
+		if(Debug.getDEBUG_VALUE() == 4){
+		strbuild.append("Constructor is called :: "+ this.getClass().getName());}
+	}
+	
+	Set<MyAllTypesFirst> myAllTypesFirsts = new LinkedHashSet<MyAllTypesFirst>();
+	Set<MyAllTypesSecond> myAllTypesSeconds = new LinkedHashSet<MyAllTypesSecond>();
+
+	/* (non-Javadoc)
+	 * @see reflection.interfaces.ICompareTwoClasses#compare()
+	 */
+	@Override
+	public void compare() {
+
+		myAllTypesFirsts.add(DeSerializeTypes.getMyAllTypesFirsts().get(0));
+		myAllTypesSeconds.add(DeSerializeTypes.getMyAllTypesSeconds().get(0));
+		if (null != DeSerializeTypes.getMyAllTypesFirsts()) {
+			for (MyAllTypesFirst myFirst : DeSerializeTypes
+					.getMyAllTypesFirsts()) {
+				boolean flag = false;
+				for (MyAllTypesFirst myFirstEmpty : myAllTypesFirsts) {
+					if (myFirstEmpty.equals(myFirst)) {
+						flag = true;
+					}
+
+				}
+				if (!flag) {
+					myAllTypesFirsts.add(myFirst);
+				}
+			}
+		}
+		if (null != DeSerializeTypes.getMyAllTypesSeconds()) {
+			for (MyAllTypesSecond mySecond : DeSerializeTypes
+					.getMyAllTypesSeconds()) {
+				boolean flag = false;
+				for (MyAllTypesSecond mySecondEmpty : myAllTypesSeconds) {
+					if (mySecondEmpty.equals(mySecond)) {
+						flag = true;
+					}
+				}
+				if (!flag) {
+					myAllTypesSeconds.add(mySecond);
+				}
+
+			}
+		}
+		@Override
+		  public String toString() {
+		    return strbuild.toString();
+		  }
+	}
+
+}

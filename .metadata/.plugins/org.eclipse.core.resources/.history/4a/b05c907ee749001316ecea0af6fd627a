@@ -1,0 +1,231 @@
+package reflection.serDeser;
+
+import java.beans.IntrospectionException;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import reflection.interfaces.IDeSerialize;
+import reflection.util.MyAllTypesFirst;
+import reflection.util.MyAllTypesSecond;
+import reflection.utilClasses.CompareTwoClasses;
+import reflection.utilClasses.Debug;
+/**
+ * @author Prajakta 
+ * DeSerialize class that uses reflection to generate classes and calls respective methodfrom the parsed data 
+ */
+public class DeSerialize implements IDeSerialize {
+	static ArrayList<MyAllTypesFirst> myAllTypesFirsts1 = new ArrayList<MyAllTypesFirst>();
+	static ArrayList<MyAllTypesSecond> myAllTypesSecond1 = new ArrayList<MyAllTypesSecond>();
+	static Integer finalValue = 0;
+
+	/**
+	 * DeSerialize Constructor
+	 */
+	public DeSerialize() {
+		if(Debug.getDEBUG_VALUE() == 4){
+		CompareTwoClasses.strbuild.append("\n Constructor is called :: "+ this.getClass().getName());}
+	}
+	
+	/* (non-Javadoc)
+	 * @see reflection.interfaces.IDeSerialize#deSerializeMethod(java.util.HashMap)
+	 */
+	@Override
+	public void deSerializeMethod(HashMap<Integer, String> hashMap) {
+		
+		Class myObjectClass = null;
+		try {
+			if(null != hashMap.get(0)){
+			myObjectClass = Class.forName(hashMap.get(0));}
+			Object object = myObjectClass.newInstance();
+			if (object instanceof MyAllTypesFirst) {
+				@SuppressWarnings("unchecked")
+				Method method1 = myObjectClass.getDeclaredMethod("setMyString",
+						String.class);
+				@SuppressWarnings("unchecked")
+				Method method2 = myObjectClass.getDeclaredMethod("setMyInt",
+						int.class);
+				@SuppressWarnings("unchecked")
+				Method method3 = myObjectClass.getDeclaredMethod("setMyDouble",
+						double.class);
+				@SuppressWarnings("unchecked")
+				Method method4 = myObjectClass.getDeclaredMethod("setMyLong",
+						long.class);
+				@SuppressWarnings("unchecked")
+				Method method5 = myObjectClass.getDeclaredMethod("setMyChar",
+						char.class);
+			if(null != hashMap.get(1)){
+				method1.invoke(object, hashMap.get(1));}
+				if(null != hashMap.get(2)){
+				method2.invoke(object, Integer.parseInt(hashMap.get(2)));}
+				if(null != hashMap.get(3)){
+				method3.invoke(object, Double.parseDouble(hashMap.get(3)));}
+				if(null != hashMap.get(4)){
+				method4.invoke(object, Long.parseLong(hashMap.get(4)));}
+				if(null != hashMap.get(5)){
+				method5.invoke(object, hashMap.get(5).charAt(0));}
+				MyAllTypesFirst myAllTypesFirst = new MyAllTypesFirst();
+				if(null != myObjectClass){
+				PropertyDescriptor propertyDescriptor = new PropertyDescriptor(
+						"myString", myObjectClass);
+				Method method6 = propertyDescriptor.getReadMethod();
+				propertyDescriptor = new PropertyDescriptor("myInt",
+						myObjectClass);
+				Method method7 = propertyDescriptor.getReadMethod();
+				propertyDescriptor = new PropertyDescriptor("myDouble",
+						myObjectClass);
+				Method method8 = propertyDescriptor.getReadMethod();
+				propertyDescriptor = new PropertyDescriptor("myLong",
+						myObjectClass);
+				Method method9 = propertyDescriptor.getReadMethod();
+				propertyDescriptor = new PropertyDescriptor("myChar",
+						myObjectClass);
+				Method method10 = propertyDescriptor.getReadMethod();
+				
+/*				myAllTypesFirst.setMyString((String) method6.invoke(object));
+				myAllTypesFirst.setMyInt((int) method7.invoke(object));
+				myAllTypesFirst.setMyDouble((double) method8.invoke(object));
+				myAllTypesFirst.setMyLong((long) method9.invoke(object));
+				myAllTypesFirst.setMyChar((char) method10.invoke(object));
+*/				}
+				myAllTypesFirsts1.add(myAllTypesFirst);
+				SerializeTypes.myAllTypesFinal.add(myAllTypesFirst);
+
+			} else if (object instanceof MyAllTypesSecond) {
+				MyAllTypesSecond mSecond = new MyAllTypesSecond();
+				@SuppressWarnings("unchecked")
+				Method method1 = myObjectClass.getDeclaredMethod(
+						"setMyStringS", String.class);
+				@SuppressWarnings("unchecked")
+				Method method2 = myObjectClass.getDeclaredMethod("setMyIntS",
+						int.class);
+				@SuppressWarnings("unchecked")
+				Method method3 = myObjectClass.getDeclaredMethod("setMyFloatS",
+						float.class);
+				@SuppressWarnings("unchecked")
+				Method method4 = myObjectClass.getDeclaredMethod("setMyShortS",
+						short.class);
+				@SuppressWarnings("unchecked")
+				Method method5 = myObjectClass.getDeclaredMethod("setMyCharS",
+						char.class);
+				if(null != hashMap.get(1)){
+				method1.invoke(object, hashMap.get(1));}
+				if(null != hashMap.get(2)){
+				method2.invoke(object, Integer.parseInt(hashMap.get(2)));}
+				if(null != hashMap.get(3)){
+				method3.invoke(object, Float.parseFloat(hashMap.get(3)));}
+				if(null != hashMap.get(4)){
+				method4.invoke(object, Short.parseShort(hashMap.get(4)));}
+				if(null != hashMap.get(5)){
+				method5.invoke(object, hashMap.get(5).charAt(0));}
+				MyAllTypesSecond myAllTypesSecond = new MyAllTypesSecond();
+				if(null != myObjectClass){
+/*				PropertyDescriptor propertyDescriptor = new PropertyDescriptor(
+						"myStringS", myObjectClass);
+				Method method6 = propertyDescriptor.getReadMethod();
+				propertyDescriptor = new PropertyDescriptor("myIntS",
+						myObjectClass);
+				Method method7 = propertyDescriptor.getReadMethod();
+				propertyDescriptor = new PropertyDescriptor("myFloatS",
+						myObjectClass);
+				Method method8 = propertyDescriptor.getReadMethod();
+				propertyDescriptor = new PropertyDescriptor("myShortS",
+						myObjectClass);
+				Method method9 = propertyDescriptor.getReadMethod();
+				propertyDescriptor = new PropertyDescriptor("myCharS",
+						myObjectClass);
+				Method method10 = propertyDescriptor.getReadMethod();
+
+				myAllTypesSecond.setMyStringS((String) method6.invoke(myObjectClass));
+				myAllTypesSecond.setMyIntS((int) method7.invoke(myObjectClass));
+				myAllTypesSecond.setMyFloatS((float) method8.invoke(myObjectClass));
+				myAllTypesSecond.setMyShortS((short) method9.invoke(myObjectClass));
+				myAllTypesSecond.setMyCharS((char) method10.invoke(myObjectClass));
+*/				
+					Method m = object.getClass().getMethod("getMyStringS", new Class[] {});
+					myAllTypesSecond.setMyStringS((String) m.invoke(object, new Object[] {}));
+					
+					Method m11 = object.getClass().getMethod("getMyIntS", new Class[] {});
+					Object ret =  m11.invoke(object, new Object[] {}));
+					
+					//Method gs5Method = myObjectClass.getMethod("getMyCharS", new Class[] {});
+					//myAllTypesSecond.setMyCharS(((String) gs5Method.invoke( new Object[] {})));
+					
+				//	Method method6 = myObjectClass.getMethod("getMyStringS");
+				//	myAllTypesSecond.setMyStringS((String) method6.invoke(object));
+			/*		myAllTypesSecond.setMyIntS((int) method7.invoke(myObjectClass));
+					myAllTypesSecond.setMyFloatS((float) method8.invoke(myObjectClass));
+					myAllTypesSecond.setMyShortS((short) method9.invoke(myObjectClass));
+					myAllTypesSecond.setMyCharS((char) method10.invoke(myObjectClass));
+			*/		
+				}
+				
+				myAllTypesSecond1.add(myAllTypesSecond);
+				SerializeTypes.myAllTypesFinal.add(myAllTypesSecond);
+			}
+		} catch (ClassNotFoundException e) {
+			System.err.println("Exception Occured :: " + e.getMessage());
+			System.exit(0);
+		} catch (NoSuchMethodException nsme) {
+			System.err.println("Exception Occured :: " + nsme.getMessage());
+			System.exit(0);
+		} catch (IllegalAccessException iae) {
+			System.err.println("Exception Occured :: " + iae.getMessage());
+			System.exit(0);
+		} catch (InstantiationException ie) {
+			System.err.println("Exception Occured :: " + ie.getMessage());
+			System.exit(0);
+		} catch (InvocationTargetException ite) {
+			System.err.println("Exception Occured :: " + ite.getMessage());
+			System.exit(0);
+		} catch (IntrospectionException e) {
+			System.err.println("Exception Occured :: " + e.getMessage());
+			System.exit(0);
+		}finally {
+			
+		}
+	}
+
+	/**
+	 * @return the myAllTypesFirsts1
+	 */
+	public static ArrayList<MyAllTypesFirst> getMyAllTypesFirsts1() {
+		return myAllTypesFirsts1;
+	}
+
+	/**
+	 * @param myAllTypesFirsts1
+	 *            the myAllTypesFirsts1 to set
+	 */
+	public static void setMyAllTypesFirsts1(
+			ArrayList<MyAllTypesFirst> myAllTypesFirsts1) {
+		DeSerialize.myAllTypesFirsts1 = myAllTypesFirsts1;
+	}
+
+	/**
+	 * @return the myAllTypesSecond1
+	 */
+	public static ArrayList<MyAllTypesSecond> getMyAllTypesSecond1() {
+		return myAllTypesSecond1;
+	}
+
+	/**
+	 * @param myAllTypesSecond1
+	 *            the myAllTypesSecond1 to set
+	 */
+	public static void setMyAllTypesSecond1(
+			ArrayList<MyAllTypesSecond> myAllTypesSecond1) {
+		DeSerialize.myAllTypesSecond1 = myAllTypesSecond1;
+	}
+	@Override
+	public String toString() {
+	    StringBuilder result = new StringBuilder();
+	    String NEW_LINE = System.getProperty("line.separator");
+
+	    result.append(""+ NEW_LINE);
+	    
+	    return result.toString();
+	  }
+}

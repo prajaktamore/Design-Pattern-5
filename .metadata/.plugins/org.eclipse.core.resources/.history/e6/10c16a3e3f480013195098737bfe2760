@@ -1,0 +1,12 @@
+package reflection.serDeser;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+import reflection.util.MyAllTypesFirst;
+import reflection.util.MyAllTypesSecond;
+
+public class DeSerializeTypes {
+	static HashSet<MyAllTypesFirst> myAllTypesFirsts = new HashSet<MyAllTypesFirst>();
+	static HashSet<MyAllTypesSecond> myAllTypesSeconds = new HashSet<MyAllTypesSecond>();
+}

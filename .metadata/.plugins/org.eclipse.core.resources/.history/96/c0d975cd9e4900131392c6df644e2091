@@ -1,0 +1,7 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.Strategy;
+
+public class PrimitiveTypes implements Strategy{
+
+}

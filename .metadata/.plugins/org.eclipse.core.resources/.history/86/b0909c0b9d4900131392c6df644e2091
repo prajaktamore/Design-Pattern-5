@@ -1,0 +1,5 @@
+package reflection.interfaces;
+
+public interface Strategy {
+	public Class doOperation(String object);
+}

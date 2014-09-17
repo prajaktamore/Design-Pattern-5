@@ -1,0 +1,108 @@
+package reflection.util;
+
+public class MyAllTypesSecond {
+	private int myIntS;
+	private String myStringS;
+	private float myFloatS;
+	private short myShortS;
+	private char myCharS;
+	/**
+	 * @return the myIntS
+	 */
+	public int getMyIntS() {
+		return myIntS;
+	}
+	/**
+	 * @param myIntS the myIntS to set
+	 */
+	public void setMyIntS(int myIntS) {
+		this.myIntS = myIntS;
+	}
+	/**
+	 * @return the myStringS
+	 */
+	public String getMyStringS() {
+		return myStringS;
+	}
+	/**
+	 * @param myStringS the myStringS to set
+	 */
+	public void setMyStringS(String myStringS) {
+		this.myStringS = myStringS;
+	}
+	/**
+	 * @return the myFloatS
+	 */
+	public float getMyFloatS() {
+		return myFloatS;
+	}
+	/**
+	 * @param myFloatS the myFloatS to set
+	 */
+	public void setMyFloatS(float myFloatS) {
+		this.myFloatS = myFloatS;
+	}
+	/**
+	 * @return the myShortS
+	 */
+	public short getMyShortS() {
+		return myShortS;
+	}
+	/**
+	 * @param myShortS the myShortS to set
+	 */
+	public void setMyShortS(short myShortS) {
+		this.myShortS = myShortS;
+	}
+	/**
+	 * @return the myCharS
+	 */
+	public char getMyCharS() {
+		return myCharS;
+	}
+	/**
+	 * @param myCharS the myCharS to set
+	 */
+	public void setMyCharS(char myCharS) {
+		this.myCharS = myCharS;
+	}
+	@Override
+	  public boolean equals(Object obj) {           
+	        if (this == obj)
+	            return true;
+	        if (obj == null)
+	            return false;
+	        if (getClass() != obj.getClass())
+	            return false;
+	        
+	        MyAllTypesSecond other = (MyAllTypesSecond) obj;
+	        if (this.getMyCharS() != other.getMyCharS()){
+	            return false;
+	        } else if (!this.getMyStringS().equals(other.getMyStringS()))
+	        { return false;
+	        }else if (this.getMyIntS() != other.getMyIntS()){
+              return false;
+      	}else if (this.getMyFloatS() != other.getMyFloatS() ) {
+      		return false;
+      	}else if (this.getMyShortS() != other.getMyShortS()){
+              return false;
+      }
+	        return true;}
+	
+	@Override
+	public int hashCode() {
+		
+      int result = 1;
+      
+      result = int (31 * result
+              + ((this.getMyStringS() == null) ? 0 : this.getMyStringS().hashCode()));
+      result = 32 * result + this.getMyIntS();
+      result = (int)(33 * result
+              + ((this.getMyCharS() == ' ') ? 0 : this.getMyCharS()));
+      result = (int) (34 * result + this.getMyShortS());
+      result = (int) (35 * result + this.getMyFloatS());
+      return result;
+	}
+
+}
+

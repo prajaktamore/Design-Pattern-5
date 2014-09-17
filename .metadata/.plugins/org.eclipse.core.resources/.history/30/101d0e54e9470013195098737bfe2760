@@ -1,0 +1,5 @@
+package reflection.interfaces;
+
+public interface ICheckUserInput {
+	public void checkUserInput(String input)
+}

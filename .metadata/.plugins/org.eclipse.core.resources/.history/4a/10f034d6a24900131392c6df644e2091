@@ -1,0 +1,15 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.IStrategy;
+
+public class PrimitiveTypes implements IStrategy{
+
+	@Override
+	public boolean check(String s) {
+		if(s.equals("complexType")){
+			return true;
+		}
+		return false;
+	}
+
+}

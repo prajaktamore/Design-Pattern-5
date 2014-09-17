@@ -1,0 +1,10 @@
+package reflection.util;
+
+public class MyAllTypesSecond {
+	private int myInt;
+	private String myString;
+	private float myFloat;
+	private short myShort;
+	private char myChar;
+	
+}

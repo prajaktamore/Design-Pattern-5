@@ -1,0 +1,70 @@
+package reflection.utilClasses;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.ListIterator;
+import java.util.Set;
+import java.util.TreeSet;
+
+import reflection.serDeser.DeSerializeTypes;
+import reflection.util.MyAllTypesFirst;
+import reflection.util.MyAllTypesSecond;
+
+public class CompareTwoClasses {
+
+	Set<MyAllTypesFirst> myAllTypesFirsts = new LinkedHashSet<MyAllTypesFirst>();
+	Set<MyAllTypesSecond> myAllTypesSeconds = new LinkedHashSet<MyAllTypesSecond>();
+	public void compare() {
+	
+		myAllTypesFirsts.add(DeSerializeTypes.getMyAllTypesFirsts().get(0));
+		if (null != DeSerializeTypes.getMyAllTypesFirsts()) {
+			for (MyAllTypesFirst myFirst : DeSerializeTypes.getMyAllTypesFirsts()) {
+				for (MyAllTypesFirst myFirstEmpty : myAllTypesFirsts) {
+					if(myFirstEmpty.equals(myFirst)){
+						Boolean flag = Boolean.TRUE; 
+				}
+			}
+		}	
+			for (int j = 0; j < DeSerializeTypes.getMyAllTypesFirsts()
+					.size(); j++) {
+				for (int i = j+1; i < DeSerializeTypes.getMyAllTypesFirsts()
+						.size(); i++) {
+					System.out.println("j"+j);
+						if ((DeSerializeTypes.getMyAllTypesFirsts().get(j).equals(DeSerializeTypes.getMyAllTypesFirsts().get(i)))){
+									myFirst = myFirst + 1;
+									myAllTypesFirsts.add(DeSerializeTypes.getMyAllTypesFirsts().get(j));
+									System.out.println("myFirst"+myFirst);
+					}else{
+						myAllTypesFirsts.add(DeSerializeTypes.getMyAllTypesFirsts().get(j));
+					}
+				}
+			}
+		}
+		
+		if (null != DeSerializeTypes.getMyAllTypesSeconds()) {
+			for (int j = 0; j < DeSerializeTypes.getMyAllTypesSeconds()
+					.size(); j++) {
+				for (int i = j+1; i < DeSerializeTypes.getMyAllTypesSeconds()
+						.size(); i++) {
+								if ((DeSerializeTypes.getMyAllTypesSeconds().get(j).equals(DeSerializeTypes.getMyAllTypesSeconds().get(i)))){
+									if(DeSerializeTypes.getMyAllTypesSeconds().get(j).hashCode() == DeSerializeTypes.getMyAllTypesSeconds().get(i).hashCode()) {
+										mySecond = mySecond + 1;
+										myAllTypesSeconds.add(DeSerializeTypes.getMyAllTypesSeconds().get(j));
+							}
+				}
+			}
+		}
+		}
+		System.out.println("myFirst"+myFirst);
+		System.out.println("mySecond"+mySecond);
+		System.out.println("myAllTypesFirsts.size()" + myAllTypesFirsts.size());
+		System.out.println("myAllTypesSeconds"+myAllTypesSeconds.size());
+//		System.out.println("One:::"+ (DeSerializeTypes.getMyAllTypesFirsts().size() - myAllTypesFirsts.size()));
+//		System.out.println("Second:::"+(DeSerializeTypes.getMyAllTypesSeconds().size()- myAllTypesSeconds.size()));
+	}
+
+}

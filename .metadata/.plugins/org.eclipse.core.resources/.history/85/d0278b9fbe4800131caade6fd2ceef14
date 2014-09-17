@@ -1,0 +1,105 @@
+package reflection.util;
+
+public class MyAllTypesFirst {
+	private int myInt;
+	private String myString;
+	private double myDouble;
+	private long myLong;
+	private char myChar;
+	/**
+	 * @return the myInt
+	 */
+	public int getMyInt() {
+		return myInt;
+	}
+	/**
+	 * @param myInt the myInt to set
+	 */
+	public void setMyInt(int myInt) {
+		this.myInt = myInt;
+	}
+	/**
+	 * @return the myString
+	 */
+	public String getMyString() {
+		return myString;
+	}
+	/**
+	 * @param myString the myString to set
+	 */
+	public void setMyString(String myString) {
+		this.myString = myString;
+	}
+	/**
+	 * @return the myDouble
+	 */
+	public double getMyDouble() {
+		return myDouble;
+	}
+	/**
+	 * @param myDouble the myDouble to set
+	 */
+	public void setMyDouble(double myDouble) {
+		this.myDouble = myDouble;
+	}
+	/**
+	 * @return the myLong
+	 */
+	public long getMyLong() {
+		return myLong;
+	}
+	/**
+	 * @param myLong the myLong to set
+	 */
+	public void setMyLong(long myLong) {
+		this.myLong = myLong;
+	}
+	/**
+	 * @return the myChar
+	 */
+	public char getMyChar() {
+		return myChar;
+	}
+	/**
+	 * @param myChar the myChar to set
+	 */
+	public void setMyChar(char myChar) {
+		this.myChar = myChar;
+	}
+	
+	@Override
+	  public boolean equals(Object obj) {           
+	        if (this == obj)
+	            return true;
+	        if (obj == null)
+	            return false;
+	        if (getClass() != obj.getClass())
+	            return false;
+	        MyAllTypesFirst other = (MyAllTypesFirst) obj;
+	        if (myInt != other.myInt){
+	            return false;
+	        } else if (!myString.equals(other.myString))
+	        { return false;
+	        }else if (myChar != other.myChar){
+                return false;
+        	}else if (myDouble != other.myDouble ) {
+        		return false;
+        	}else if (myLong != other.myLong){
+                return false;
+        }
+	        return true;}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+        int result = 1;
+        result = prime * result
+                + ((myString == null) ? 0 : myString.hashCode());
+        result = prime * result + myInt;
+        result = prime * result
+                + ((myChar == ' ') ? 0 : myChar);
+        result = (int) (prime * result + myDouble);
+        result = (int) (prime * result + myLong);
+        return result;
+	}
+}

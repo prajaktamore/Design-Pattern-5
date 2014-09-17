@@ -1,0 +1,9 @@
+package reflection.interfaces;
+
+public interface IStrategy {
+	/**
+	 * @param s
+	 * @return boolean
+	 */
+	public boolean check(String s); 
+}

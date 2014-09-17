@@ -1,0 +1,5 @@
+package serDeser;
+
+public class SerializeTypes {
+
+}

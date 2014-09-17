@@ -1,0 +1,13 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.Strategy;
+
+public class MySecondClass implements Strategy{
+
+	@Override
+	public Class doOperation(String object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

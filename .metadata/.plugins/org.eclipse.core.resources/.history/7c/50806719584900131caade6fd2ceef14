@@ -1,0 +1,12 @@
+package reflection.serDeser;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import reflection.util.MyAllTypesFirst;
+import reflection.util.MyAllTypesSecond;
+
+public class SerializeTypes {
+	static HashMap<Integer,MyAllTypesSecond> myAllTypesSecondsFinal = new HashMap<Integer,MyAllTypesSecond>();
+	static HashMap<Integer,MyAllTypesFirst> myAllTypesFirstsFinal = new HashMap<Integer,MyAllTypesFirst>();
+}

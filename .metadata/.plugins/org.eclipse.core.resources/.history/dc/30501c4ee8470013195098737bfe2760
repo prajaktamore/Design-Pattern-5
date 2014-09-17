@@ -1,0 +1,61 @@
+package reflection.utilClasses;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+
+public class FileReaderClass {
+	static FileReader fileReader;
+	static BufferedReader br;
+	static String musicFileName;
+	static String searchFileName;
+	/**
+	 * @return the fileReader
+	 */
+	public static FileReader getFileReader() {
+		return fileReader;
+	}
+	/**
+	 * @param fileReader the fileReader to set
+	 */
+	public static void setFileReader(FileReader fileReader) {
+		FileReaderClass.fileReader = fileReader;
+	}
+	/**
+	 * @return the br
+	 */
+	public static BufferedReader getBr() {
+		return br;
+	}
+	/**
+	 * @param br the br to set
+	 */
+	public static void setBr(BufferedReader br) {
+		FileReaderClass.br = br;
+	}
+	/**
+	 * @return the musicFileName
+	 */
+	public static String getMusicFileName() {
+		return musicFileName;
+	}
+	/**
+	 * @param musicFileName the musicFileName to set
+	 */
+	public static void setMusicFileName(String musicFileName) {
+		FileReaderClass.musicFileName = musicFileName;
+	}
+	/**
+	 * @return the searchFileName
+	 */
+	public static String getSearchFileName() {
+		return searchFileName;
+	}
+	/**
+	 * @param searchFileName the searchFileName to set
+	 */
+	public static void setSearchFileName(String searchFileName) {
+		FileReaderClass.searchFileName = searchFileName;
+	}
+
+}

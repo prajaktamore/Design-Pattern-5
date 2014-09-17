@@ -1,0 +1,44 @@
+package reflection.serDeser;
+
+import java.util.ArrayList;
+
+import reflection.util.MyAllTypesFirst;
+import reflection.util.MyAllTypesSecond;
+
+public class DeSerializeTypes {
+	static ArrayList<MyAllTypesFirst> myAllTypesFirsts = new ArrayList<MyAllTypesFirst>();
+	static ArrayList<MyAllTypesSecond> myAllTypesSeconds = new ArrayList<MyAllTypesSecond>();
+
+	/**
+	 * @return the myAllTypesFirsts
+	 */
+	public static ArrayList<MyAllTypesFirst> getMyAllTypesFirsts() {
+		return myAllTypesFirsts;
+	}
+
+	/**
+	 * @param myAllTypesFirsts
+	 *            the myAllTypesFirsts to set
+	 */
+	public static void setMyAllTypesFirsts(
+			ArrayList<MyAllTypesFirst> myAllTypesFirsts) {
+		DeSerializeTypes.myAllTypesFirsts = myAllTypesFirsts;
+	}
+
+	/**
+	 * @return the myAllTypesSeconds
+	 */
+	public static ArrayList<MyAllTypesSecond> getMyAllTypesSeconds() {
+		return myAllTypesSeconds;
+	}
+
+	/**
+	 * @param myAllTypesSeconds
+	 *            the myAllTypesSeconds to set
+	 */
+	public static void setMyAllTypesSeconds(
+			ArrayList<MyAllTypesSecond> myAllTypesSeconds) {
+		DeSerializeTypes.myAllTypesSeconds = myAllTypesSeconds;
+	}
+
+}

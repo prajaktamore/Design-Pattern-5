@@ -1,0 +1,23 @@
+package reflection.utilClasses;
+
+public class CheckUserInput {
+	/**
+	 * @param input
+	 * @throws CatchWrongInputException
+	 */
+	public static void checkUserInput(int input)
+			throws CatchWrongInputException {
+	try {
+		if (input < 1 || input > 5) {
+			throw new CatchWrongInputException(
+					"MM and NN should be between 1 to 5");
+		}
+	} catch (CatchWrongInputException e) {
+		System.err.println("Exception Occured :: "+e.getMessage());
+		System.exit(0);
+
+	} finally {
+		System.out.println("Program Failed to Execute");
+	}
+	}
+}

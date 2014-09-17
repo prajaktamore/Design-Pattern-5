@@ -1,0 +1,40 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.ICheckUserInput;
+
+public class CheckUserInput implements ICheckUserInput{
+
+	@Override
+	public void checkUserInput(String input) {
+		try {
+			if (null == input && input.trim().equals(" ") && input.length() == 0) {
+				throw new CatchWrongInputException(
+						"Input String is not valid");
+			}
+		} catch (CatchWrongInputException e) {
+			System.err.println("Exception Occured :: "+e.getMessage());
+			System.exit(0);
+
+		} finally {
+			System.out.println("Program Failed to Execute");
+		}
+		}	
+	
+	@Override
+	public void checkUserInputNumber(int input)
+			throws CatchWrongInputException {
+		try {
+			if (input < 1 || input > 5) {
+				throw new CatchWrongInputException(
+						"MM and NN should be between 1 to 5");
+			}
+		} catch (CatchWrongInputException e) {
+			System.err.println("Exception Occured :: "+e.getMessage());
+			System.exit(0);
+
+		} finally {
+			System.out.println("Program Failed to Execute");
+		}
+	}
+
+}

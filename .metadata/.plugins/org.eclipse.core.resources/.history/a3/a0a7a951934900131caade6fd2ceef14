@@ -1,0 +1,7 @@
+package reflection.interfaces;
+
+import java.io.IOException;
+
+public interface ISerialize {
+	public void serializeObject() throws IOException;
+}

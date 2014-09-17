@@ -1,0 +1,15 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.Strategy;
+import reflection.util.MyAllTypesSecond;
+
+public class MySecondClass implements Strategy{
+
+	@Override
+	public Boolean doOperation(Object object) {
+		if(object instanceof MyAllTypesSecond){
+			Boolean.TRUE;
+		}
+	}
+
+}

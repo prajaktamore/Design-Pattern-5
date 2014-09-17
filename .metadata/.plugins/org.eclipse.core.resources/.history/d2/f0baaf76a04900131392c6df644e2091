@@ -1,0 +1,15 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.Strategy;
+
+public class PrimitiveTypes implements Strategy{
+
+	@Override
+	public boolean check(String s) {
+		if(s.trim().contains("DPSerialization")){
+			return true;
+		}
+		return false;
+	}
+
+}

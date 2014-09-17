@@ -1,0 +1,44 @@
+package reflection.serDeser;
+
+import java.util.HashMap;
+
+import reflection.util.MyAllTypesFirst;
+import reflection.util.MyAllTypesSecond;
+
+public class SerializeTypes {
+	static HashMap<Integer, MyAllTypesSecond> myAllTypesSecondsFinal = new HashMap<Integer, MyAllTypesSecond>();
+	static HashMap<Integer, MyAllTypesFirst> myAllTypesFirstsFinal = new HashMap<Integer, MyAllTypesFirst>();
+
+	/**
+	 * @return the myAllTypesSecondsFinal
+	 */
+	public static HashMap<Integer, MyAllTypesSecond> getMyAllTypesSecondsFinal() {
+		return myAllTypesSecondsFinal;
+	}
+
+	/**
+	 * @param myAllTypesSecondsFinal
+	 *            the myAllTypesSecondsFinal to set
+	 */
+	public static void setMyAllTypesSecondsFinal(
+			HashMap<Integer, MyAllTypesSecond> myAllTypesSecondsFinal) {
+		SerializeTypes.myAllTypesSecondsFinal = myAllTypesSecondsFinal;
+	}
+
+	/**
+	 * @return the myAllTypesFirstsFinal
+	 */
+	public static HashMap<Integer, MyAllTypesFirst> getMyAllTypesFirstsFinal() {
+		return myAllTypesFirstsFinal;
+	}
+
+	/**
+	 * @param myAllTypesFirstsFinal
+	 *            the myAllTypesFirstsFinal to set
+	 */
+	public static void setMyAllTypesFirstsFinal(
+			HashMap<Integer, MyAllTypesFirst> myAllTypesFirstsFinal) {
+		SerializeTypes.myAllTypesFirstsFinal = myAllTypesFirstsFinal;
+	}
+
+}

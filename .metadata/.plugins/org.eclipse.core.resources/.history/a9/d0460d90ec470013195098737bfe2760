@@ -1,0 +1,9 @@
+package reflection.interfaces;
+
+import reflection.utilClasses.CatchWrongInputException;
+
+public interface ICheckUserInput {
+	public void checkUserInput(String input) throws CatchWrongInputException;
+	public void checkUserInputNumber(int input) throws CatchWrongInputException;
+
+}

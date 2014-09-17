@@ -1,0 +1,15 @@
+package reflection.utilClasses;
+
+import reflection.interfaces.IStrategy;
+
+public class DPSerialization implements IStrategy{
+
+	@Override
+	public boolean check(String s) {
+		if(s.trim().contains("complexType")){
+			return true;
+		}
+		return false;
+	}
+
+}
